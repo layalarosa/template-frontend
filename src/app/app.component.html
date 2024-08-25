@@ -1,28 +1,9 @@
-<h2> Datos de Pelicula</h2>
+<app-navbar></app-navbar>
 
-<!-- <h4>Implementacion Clasica de *ngfor</h4>
+<div class="container">
+     <router-outlet></router-outlet>
+</div>
 
-<div *ngFor="let Pelicula of peliculas; let indice = index">
-  <p>{{indice}}) Pelicula {{Pelicula.titulo | uppercase}}</p>
-  <p>Fecha de Lanzamiento: {{Pelicula.fechaLanzamiento  | date:'dd-MMMM-yyyy' | uppercase}}</p>
-  <p>Precio: {{Pelicula.precio | currency}}</p>
-</div> -->
 
-<!-- <h4>Implementacion Modenar de for</h4> -->
 
-@for (pelicula of peliculas; track $index) {
-  <div class="contenedor-peliculas">
-    <div style="display: flex; flex-direction: row; gap: 10px">
-       <div>
-        <img [src]="pelicula.poster" withd="169" heigth="250" />
-       </div>
-       <div>
-        <p>{{$index}}) Pelicula {{pelicula.titulo | uppercase}}</p>
-        <p>Fecha de Lanzamiento: {{pelicula.fechaLanzamiento  | date:'dd-MMMM-yyyy' | uppercase}}</p>
-        <p>Precio: {{pelicula.precio | currency}}</p>
-      </div>
-    </div>
-
-  </div>
-}
 
