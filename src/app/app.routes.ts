@@ -10,6 +10,7 @@ export const routes: Routes = [
     {path: 'about', component: AboutComponent},
     {path: 'todo', component: ListTodoComponent},
     {path: 'todo/create', component: CreateTodoComponent},
-    {path: 'todo/edit/:id', component: EditTodoComponent}
+    {path: 'todo/edit/:id', component: EditTodoComponent},
+    {path: '**', redirectTo: ''}
     
 ];

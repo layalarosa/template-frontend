@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
+import { TodoService } from '../../../services/todo.service';
 
 @Component({
   selector: 'app-list-todo',
@@ -11,4 +12,12 @@ import { RouterLink } from '@angular/router';
 })
 export class ListTodoComponent {
 
+  todosService = inject(TodoService)
+
+  constructor(){
+    this.todosService.getAll().subscribe(todos => {
+     console.log(todos);
+    })
+    
+  }
 }
