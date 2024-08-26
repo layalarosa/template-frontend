@@ -2,9 +2,14 @@
     <span>
         <a mat-button routerLink="">Template</a>
     </span>
-    <span>
-        <a mat-button routerLink="todo">ToDo</a>
-    </span>
+    <app-authorized rol="admin">
+        <ng-container authorized>
+            <span>
+                <a mat-button routerLink="todo">ToDo</a>
+            </span>
+        </ng-container>
+    </app-authorized>
+   
     <span>
         <a mat-button routerLink="about">About</a>
     </span>

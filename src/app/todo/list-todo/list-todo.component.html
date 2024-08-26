@@ -1,3 +1,6 @@
-<p>List ToDo</p>
-
-<button mat-flat-button routerLink="/todo/create">Create New</button>
+<app-authorized rol="admin">
+    <ng-container authorized>
+        <p>List ToDo</p>
+        <button mat-flat-button routerLink="/todo/create">Create New</button>
+   </ng-container>
+</app-authorized>
