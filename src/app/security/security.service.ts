@@ -17,6 +17,14 @@ export class SecurityService {
   private readonly keyToken = 'token';
   private readonly keyExpiration = 'token-expiration'
 
+  // createAdmin(email: string) {
+  //   return this.http.post(`${this.urlBase}/createadmin`, { email });
+  // }
+
+  // removeAdmin(email: string) {
+  //   return this.http.post(`${this.urlBase}/removeadmin`, { email });
+  // }
+
   register(credentials : UserCredentialsDTO): Observable<AuthenticationResponseDTO>{
     return this.http.post<AuthenticationResponseDTO>(`${this.urlBase}/register`, credentials)
     .pipe(
@@ -29,6 +37,13 @@ export class SecurityService {
     .pipe(
       tap((authenticationResponse: AuthenticationResponseDTO) => this.saveToken(authenticationResponse))
     )
+  }
+
+  getFieldJWT(field: string): string {
+    const token = localStorage.getItem(this.keyToken)
+    if (!token){return ''}
+    var dataToken = JSON.parse(atob(token.split('.')[1]))
+    return dataToken[field];
   }
   
   saveToken(authenticationResponse: AuthenticationResponseDTO){

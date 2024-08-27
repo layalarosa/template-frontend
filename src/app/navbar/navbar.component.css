@@ -8,3 +8,12 @@ mat-toolbar {
 app-autorizado {
     display: flex;
 }
+
+.space{
+    font-size: 18px;
+}
+
+.saludo{
+    font-size: 18px;
+    display: inline
+}

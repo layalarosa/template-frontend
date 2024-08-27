@@ -13,4 +13,18 @@
     <span>
         <a mat-button routerLink="about">About</a>
     </span>
+    <div class="space"></div>
+    <app-authorized style="display: inline">
+        <app-authorized style="display:inline">
+            <ng-container autorizado>
+                <span class="saludo">Hi, {{securityService.getFieldJWT('email')}}</span>
+                <a mat-button (click)="securityService.logout()">Logout</a>
+            </ng-container>
+    
+            <ng-container noAutorizado>
+                <a mat-button routerLink="login">Login</a>
+                <a mat-button routerLink="register">Register</a>
+            </ng-container>
+        </app-authorized>
+    </app-authorized>
 </mat-toolbar>

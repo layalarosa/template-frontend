@@ -8,6 +8,7 @@
         <input matInput [formControl]="form.controls.email"/>
         <mat-error>{{getErrorMessageEmail}}</mat-error>
     </mat-form-field>
+    
     <mat-form-field appearance="outline">
         <mat-label>Password</mat-label>
         <input matInput type="password" [formControl]="form.controls.password"/>
@@ -16,7 +17,7 @@
 
     <div class="">
         <!-- Add later [disable]="form.invalid" -->
-        <button mat-flat-button type="submit">Guardar cambios</button>
+        <button mat-flat-button type="submit">Submit</button>
     </div>
 
 </form>
