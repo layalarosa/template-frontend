@@ -1,0 +1,30 @@
+.about-section {
+    padding: 50px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  
+  .about-section h1, .about-section h2 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .about-section p {
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  .team-member {
+    margin-top: 30px;
+  }
+  
+  .team-member h3 {
+    color: #007bff;
+    margin-bottom: 10px;
+  }
+  
+  .team-member p {
+    color: #666;
+  }
+  
