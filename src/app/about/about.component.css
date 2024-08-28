@@ -27,4 +27,20 @@
   .team-member p {
     color: #666;
   }
+
+  .hero-section {
+    text-align: center;
+    padding: 100px 20px;
+    background-color: #f7f7f7;
+  }
+  
+  .hero-section h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  
+  .hero-section p {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
   
