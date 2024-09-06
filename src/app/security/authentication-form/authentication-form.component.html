@@ -16,8 +16,7 @@
     </mat-form-field>
 
     <div class="button-container">
-        <!-- Add later [disable]="form.invalid" -->
-        <button mat-flat-button type="submit">Submit</button>
+        <button mat-flat-button type="submit" [disabled]="form.invalid">Submit</button>
     </div>
 
 </form>

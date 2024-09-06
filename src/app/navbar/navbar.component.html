@@ -1,30 +1,45 @@
 <mat-toolbar>
     <span>
-        <a mat-button routerLink="">Template</a>
+        <a routerLink="" mat-button>
+            <mat-icon>home</mat-icon> Angular
+        </a>
     </span>
+
+    <!-- <div>
+        <a mat-button routerLink="peliculas/filtrar">
+            <mat-icon>search</mat-icon>
+            Buscar Películas</a>
+    </div> -->
+
     <app-authorized rol="admin">
-        <ng-container authorized>
-            <span>
-                <a mat-button routerLink="todo">ToDo</a>
-            </span>
+        <ng-container autorizado>
+            <div>
+                <a mat-button routerLink="todo">To do</a>
+            </div>
+
+            <!-- <div>
+                <a mat-button routerLink="usuarios">Usuarios</a>
+            </div> -->
         </ng-container>
     </app-authorized>
-   
-    <span>
+
+    <div>
         <a mat-button routerLink="about">About</a>
-    </span>
-    <div class="space"></div>
-    <app-authorized style="display: inline">
-        <app-authorized style="display:inline">
-            <ng-container autorizado>
-                <span class="saludo">Hi, {{securityService.getFieldJWT('email')}}</span>
-                <a mat-button (click)="securityService.logout()">Logout</a>
-            </ng-container>
-    
-            <ng-container noAutorizado>
-                <a mat-button routerLink="login">Login</a>
-                <a mat-button routerLink="register">Register</a>
-            </ng-container>
-        </app-authorized>
+    </div>
+
+    <div class="espacio"></div>
+
+    <app-authorized style="display:inline">
+        <ng-container autorizado>
+            <span class="saludo">Hola, {{securityService.getFieldJWT('email')}}</span>
+            <a mat-button (click)="securityService.logout()">Logout</a>
+        </ng-container>
+
+        <ng-container noAutorizado>
+            <a mat-button routerLink="login">Login</a>
+            <a mat-button routerLink="registrar">Registro</a>
+        </ng-container>
     </app-authorized>
+
+   
 </mat-toolbar>

@@ -9,7 +9,7 @@ import { SecurityService } from '../security/security.service';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [MatToolbarModule, MatIconModule, MatButtonModule, RouterLink, AuthorizedComponent,],
+  imports: [MatToolbarModule, MatIconModule, MatButtonModule, RouterLink, AuthorizedComponent],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })

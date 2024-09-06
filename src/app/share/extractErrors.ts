@@ -15,7 +15,7 @@ export function extractErrors(obj: any): string[]{
 export function extractErrorsIdentity(obj: any): string[]{
     let messageError: string[] = [];
 
-    for (let i = 0; i < obj.length; i++){
+    for (let i = 0; i < obj.error.length; i++){
         const element = obj.error[i];
         messageError.push(element.description);
         
