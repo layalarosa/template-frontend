@@ -2,11 +2,12 @@ mat-toolbar {
     position: sticky;
     position: -webkit-sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
 }
 
 app-authotized {
     display: flex;
+    
 }
 
 .space{
@@ -17,3 +18,13 @@ app-authotized {
     font-size: 14px;
     display: inline
 }
+
+ng-container[authorized] {
+    display: flex;
+    flex-direction: row; /* Alinea los elementos en una fila */
+    gap: 10px; /* Espacio entre los elementos, opcional */
+  }
+  
+  ng-container[authorized] div {
+    margin-right: 10px; /* Opcional, para agregar espacio entre los enlaces */
+  }

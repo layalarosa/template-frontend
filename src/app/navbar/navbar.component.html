@@ -5,21 +5,20 @@
         </a>
     </span>
 
-    <!-- <div>
-        <a mat-button routerLink="peliculas/filtrar">
+    <div>
+        <a mat-button routerLink="filtrar">
             <mat-icon>search</mat-icon>
             Buscar</a>
-    </div> -->
+    </div>
 
-    <app-authorized role="admin">
-        <ng-container autorizado>
-            <div>
+    <app-authorized role="admin" style="display:inline">
+        <ng-container authorized>
+            <span style="margin-right: 5px;">
                 <a mat-button routerLink="todos">To do</a>
-            </div>
-
-            <div>
+            </span>
+            <span>
                 <a mat-button routerLink="users">Users</a>
-            </div>
+            </span>
         </ng-container>
     </app-authorized>
 
@@ -31,7 +30,7 @@
 
     <app-authorized style="display:inline">
         <ng-container authorized>
-            <span class="saludo">Hola, {{securityService.getFieldJWT('email')}}</span>
+            <span class="saludo">Hi, {{securityService.getFieldJWT('email')}}</span>
             <a mat-button (click)="securityService.logout()">Logout</a>
         </ng-container>
 
