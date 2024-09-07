@@ -1,15 +1,17 @@
 import { inject, Injectable } from '@angular/core';
-import { AuthenticationResponseDTO, UserCredentialsDTO } from '../../models/security';
+import { AuthenticationResponseDTO, UserCredentialsDTO, UserDTO } from '../../models/security';
 import { Observable, tap } from 'rxjs';
 import { environment } from '../../environments/environment.development';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
+import { PaginationDTO } from '../../models/paginationDTO';
+import { buildQueryParams } from '../share/functions/buildQueryParams';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class SecurityService {
-
+  
   constructor() { }
 
   private http = inject(HttpClient);
@@ -17,13 +19,23 @@ export class SecurityService {
   private readonly keyToken = 'token';
   private readonly keyExpiration = 'token-expiration'
 
-  // createAdmin(email: string) {
-  //   return this.http.post(`${this.urlBase}/createadmin`, { email });
-  // }
 
-  // removeAdmin(email: string) {
-  //   return this.http.post(`${this.urlBase}/removeadmin`, { email });
-  // }
+  getPaginatedUsers(Pagination: PaginationDTO): Observable<HttpResponse<UserDTO[]>> {
+    let queryParams = buildQueryParams(Pagination);
+    return this.http.get<UserDTO[]>(`${this.urlBase}/UserList`, { params: queryParams, observe: 'response' });
+  }
+
+  makeAdmin(email: string) {
+    return this.http.post(`${this.urlBase}/makeadmin`, { email });
+  }
+
+  removeAdmin(email: string) {
+    return this.http.post(`${this.urlBase}/removeadmin`, { email });
+  }
+
+  getToken(): string | null{
+    return localStorage.getItem(this.keyToken)
+  }
 
   register(credentials : UserCredentialsDTO): Observable<AuthenticationResponseDTO>{
     return this.http.post<AuthenticationResponseDTO>(`${this.urlBase}/register`, credentials)
@@ -77,6 +89,11 @@ export class SecurityService {
   }
 
   getRole(): string {
-    return '';
+    const isAdmin = this.getFieldJWT('isadmin');
+    if (isAdmin) {
+      return 'admin'
+    } else {
+      return '';
+    }
   }
 }

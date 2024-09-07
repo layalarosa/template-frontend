@@ -11,11 +11,11 @@ import { SecurityService } from '../security.service';
 export class AuthorizedComponent {
   securityService = inject(SecurityService);
   @Input()
-  rol?: string;
+  role?: string;
 
   authorized(): boolean{
-    if (this.rol){
-      return this.securityService.getRole() === this.rol;
+    if (this.role){
+      return this.securityService.getRole() === this.role;
     }
     return this.securityService.logging();
   }

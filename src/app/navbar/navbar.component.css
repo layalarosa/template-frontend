@@ -5,15 +5,15 @@ mat-toolbar {
     z-index: 100;
 }
 
-app-autorizado {
+app-authotized {
     display: flex;
 }
 
 .space{
-    font-size: 18px;
+    flex: 1 1 auto
 }
 
 .saludo{
-    font-size: 18px;
+    font-size: 14px;
     display: inline
 }

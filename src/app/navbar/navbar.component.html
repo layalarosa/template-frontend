@@ -8,18 +8,18 @@
     <!-- <div>
         <a mat-button routerLink="peliculas/filtrar">
             <mat-icon>search</mat-icon>
-            Buscar Películas</a>
+            Buscar</a>
     </div> -->
 
-    <app-authorized rol="admin">
+    <app-authorized role="admin">
         <ng-container autorizado>
             <div>
-                <a mat-button routerLink="todo">To do</a>
+                <a mat-button routerLink="todos">To do</a>
             </div>
 
-            <!-- <div>
-                <a mat-button routerLink="usuarios">Usuarios</a>
-            </div> -->
+            <div>
+                <a mat-button routerLink="users">Users</a>
+            </div>
         </ng-container>
     </app-authorized>
 
@@ -27,19 +27,18 @@
         <a mat-button routerLink="about">About</a>
     </div>
 
-    <div class="espacio"></div>
+    <div class="space"></div>
 
     <app-authorized style="display:inline">
-        <ng-container autorizado>
+        <ng-container authorized>
             <span class="saludo">Hola, {{securityService.getFieldJWT('email')}}</span>
             <a mat-button (click)="securityService.logout()">Logout</a>
         </ng-container>
 
-        <ng-container noAutorizado>
+        <ng-container noAuthorized>
             <a mat-button routerLink="login">Login</a>
-            <a mat-button routerLink="registrar">Registro</a>
+            <a mat-button routerLink="register">Registro</a>
         </ng-container>
     </app-authorized>
 
-   
 </mat-toolbar>
