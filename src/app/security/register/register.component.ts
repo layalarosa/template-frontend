@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { SecurityService } from '../security.service';
-import { UserCredentialsDTO } from '../../../models/security';
+import { UserCredentialsDTO } from '../../share/models/security';
 import { Router } from '@angular/router';
 import { extractErrorsIdentity } from '../../share/extractErrors';
 import { AuthenticationFormComponent } from "../authentication-form/authentication-form.component";

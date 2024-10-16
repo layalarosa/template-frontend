@@ -1,9 +1,9 @@
 import { inject, Injectable } from '@angular/core';
-import { AuthenticationResponseDTO, UserCredentialsDTO, UserDTO } from '../../models/security';
+import { AuthenticationResponseDTO, UserCredentialsDTO, UserDTO } from '../share/models/security';
 import { Observable, tap } from 'rxjs';
 import { environment } from '../../environments/environment.development';
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { PaginationDTO } from '../../models/paginationDTO';
+import { PaginationDTO } from '../share/models/paginationDTO';
 import { buildQueryParams } from '../share/functions/buildQueryParams';
 
 
@@ -15,14 +15,14 @@ export class SecurityService {
   constructor() { }
 
   private http = inject(HttpClient);
-  private urlBase = environment.apiURL + '/user';
+  private urlBase = environment.apiURL + 'user';
   private readonly keyToken = 'token';
   private readonly keyExpiration = 'token-expiration'
 
 
   getPaginatedUsers(Pagination: PaginationDTO): Observable<HttpResponse<UserDTO[]>> {
     let queryParams = buildQueryParams(Pagination);
-    return this.http.get<UserDTO[]>(`${this.urlBase}/UserList`, { params: queryParams, observe: 'response' });
+    return this.http.get<UserDTO[]>(`${this.urlBase}/userlist`, { params: queryParams, observe: 'response' });
   }
 
   makeAdmin(email: string) {

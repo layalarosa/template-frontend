@@ -3,9 +3,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { RouterLink } from '@angular/router';
-import { UserDTO } from '../../../models/security';
+import { UserDTO } from '../../share/models/security';
 import { SecurityService } from '../security.service';
-import { PaginationDTO } from '../../../models/paginationDTO';
+import { PaginationDTO } from '../../share/models/paginationDTO';
 import Swal from 'sweetalert2';
 import { ListGenericComponent } from "../../share/component/list-generic/list-generic.component";
 

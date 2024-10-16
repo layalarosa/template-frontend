@@ -1,7 +1,7 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { UserCredentialsDTO } from '../../../models/security';
-import { ShowErrorsComponent } from '../../share/component/show-errors.component';
+import { UserCredentialsDTO } from '../../share/models/security';
+import { ShowErrorsComponent } from '../../share/component/show-errors/show-errors.component';
 import { RouterLink } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
