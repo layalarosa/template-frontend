@@ -1,0 +1,52 @@
+<form>
+    <mat-form-field>
+        <input type="text" placeholder="Select the actors" matInput [formControl]="control"
+            [matAutocomplete]="auto" />
+
+        <mat-autocomplete #auto (optionSelected)="todoSelected($event)">
+            @for (todo of todos; track $index) {
+            <mat-option [value]="todo">
+                <img [src]="todo.picture" />
+                {{todo.title}}</mat-option>
+            }
+        </mat-autocomplete>
+
+    </mat-form-field>
+</form>
+
+@if (todosSelected.length > 0) {
+    <table mat-table [dataSource]="todosSelected" class="mat-elevation-z8" cdkDropList [cdkDropListData]="todosSelected"
+    (cdkDropListDropped)="endDrag($event)"
+    >
+        <ng-container matColumnDef="imagen">
+            <td mat-cell *matCellDef="let todo">
+                <img style="width: 50px" [src]="todo.picture" />
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="title">
+            <td mat-cell *matCellDef="let todo">
+                {{todo.title}}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="description">
+            <td mat-cell *matCellDef="let todo">
+                <mat-form-field appearance="outline" style="margin: 10px 0">
+                    <mat-label>Personaje</mat-label>
+                    <input matInput [(ngModel)]="todo.description" />
+                </mat-form-field>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="accions">
+            <td mat-cell *matCellDef="let todo">
+                <mat-icon mat-list-icon (click)="delete(todo)">
+                    close
+                </mat-icon>
+            </td>
+        </ng-container>
+
+        <tr mat-row *matRowDef="let row; columns: columnsToShow" cdkDrag [cdkDragData]="row"></tr>
+    </table>
+}

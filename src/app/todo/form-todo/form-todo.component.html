@@ -1,4 +1,4 @@
-<form (submit)="saveChanges()" [formGroup]="form">
+<!-- <form (submit)="saveChanges()" [formGroup]="form">
     <mat-form-field appearance="outline">
         <mat-label>Title</mat-label>
         <input matInput [formControl]="form.controls.title" />
@@ -10,5 +10,25 @@
         [disabled]="form.invalid"
         >Save changes</button>
         <a mat-stroked-button routerLink="/generos">Cancel</a>
+    </div>
+</form> -->
+
+<form (submit)="saveChanges()" [formGroup]="form">
+    <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input matInput [formControl]="form.controls.title" />
+        <!-- <mat-error>{{obtenerErrorCampoNombre()}}</mat-error> -->
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Description</mat-label>
+        <input matInput [formControl]="form.controls.description" />
+
+    </mat-form-field>
+    <div>
+        <app-input-img [currentImageURL]="model?.picture" title="picture" (selectedFile)="selectedFile($event)"></app-input-img>
+    </div>
+    <div class="contenedor-botones">
+        <button type="submit" mat-flat-button [disabled]="form.invalid">Save</button>
+        <a mat-stroked-button routerLink="/todos">Cancel</a>
     </div>
 </form>

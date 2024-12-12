@@ -8,11 +8,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { FormTodoComponent } from '../form-todo/form-todo.component';
 import { ShowErrorsComponent } from '../../share/component/show-errors/show-errors.component';
+import { CreateEntityComponent } from "../../share/component/create-entity/created-entity.component";
 
 @Component({
   selector: 'app-create-todo',
   standalone: true,
-  imports: [MatButtonModule, RouterLink, MatFormFieldModule, ReactiveFormsModule, MatInputModule, FormTodoComponent, ShowErrorsComponent, CreateTodoComponent],
+  imports: [MatButtonModule, RouterLink, MatFormFieldModule, ReactiveFormsModule, MatInputModule, FormTodoComponent, ShowErrorsComponent, CreateTodoComponent, CreateEntityComponent],
   templateUrl: './create-todo.component.html',
   styleUrl: './create-todo.component.css',
   providers: [
